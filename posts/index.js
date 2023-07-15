@@ -6,7 +6,6 @@ const app = express();
 app.use(bodyParser.json());
 
 const posts = {};
-
 app.use(cors());
 
 app.get("/posts", (req, res) => {

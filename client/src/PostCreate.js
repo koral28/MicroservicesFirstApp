@@ -1,9 +1,12 @@
-import React from "react";
-//import { GetPosts } from "./Api";
+import React, { useState } from "react";
+import { AddPost } from "./Api";
 
 const PostCreate = () => {
-  const onSubmit = (e) => {
-    //GetPosts();
+  const [title, setTitle] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    AddPost(title);
   };
   return (
     <div
@@ -31,12 +34,18 @@ const PostCreate = () => {
           >
             Title
           </p>
-          <input style={{ width: "150px", margin: 0 }} />
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={(e) => setTitle(e.target.value)}
+              style={{ width: "150px", margin: 0 }}
+              type="text"
+              name="title"
+            />
+            <button type="submit" style={{ margin: "5px", width: "100px" }}>
+              submit
+            </button>
+          </form>
         </div>
-
-        <button style={{ margin: "5px", width: "100px" }} onClick={onSubmit}>
-          submit
-        </button>
       </div>
     </div>
   );
