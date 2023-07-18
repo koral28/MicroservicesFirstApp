@@ -23,6 +23,6 @@ app.post("/posts/:id/comments", (req, res) => {
   res.send(comments);
 });
 
-app.listen(8080, () => {
-  console.log("Listening on 8080");
+app.listen(4001, () => {
+  console.log("Listening on 4001");
 });

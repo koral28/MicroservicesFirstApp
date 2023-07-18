@@ -11,7 +11,7 @@ const CommentList = (props) => {
 
     useEffect(() => {
         fetch();
-    },)
+    },[])
 
     return (
         <div>

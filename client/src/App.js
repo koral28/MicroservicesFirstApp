@@ -5,7 +5,7 @@ import PostList from "./PostList";
 const App = () => {
   return (
     <>
-      <PostCreate />
+     <PostCreate /> 
       <PostList />
     </>
   );

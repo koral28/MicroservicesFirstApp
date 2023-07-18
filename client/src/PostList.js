@@ -13,7 +13,7 @@ const PostList = () => {
 
   useEffect(() => {
     fetch();
-  }, [posts]);
+  }, []);
 
   return (
     <ul className="postsList">
