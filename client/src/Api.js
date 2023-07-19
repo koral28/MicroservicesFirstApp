@@ -21,7 +21,7 @@ export const AddPost = async (title) => {
 export const GetCommentsPerPost = async (postId) => {
   try {
     const comments = await axios.get(
-      `http://localhost:8080/posts/${postId}/comments`
+      `http://localhost:4001/posts/${postId}/comments`
     );
     return comments.data;
   } catch (err) {
@@ -31,7 +31,7 @@ export const GetCommentsPerPost = async (postId) => {
 
 export const PostCommentPerPost = async (postId, content) => {
   try {
-    const comments = await axios.post(`http://localhost:8080/posts/${postId}/comments`, {content});
+    const comments = await axios.post(`http://localhost:4001/posts/${postId}/comments`, {content});
     return comments.data;
   } catch (err) {
     console.log(err);
