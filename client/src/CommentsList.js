@@ -7,7 +7,15 @@ const CommentList = ({ comments }) => {
       <ul>
         {comments &&
           Object.entries(comments).map(([key, value]) => {
-            return <li key={key}>{value.content}</li>;
+            let content =
+              value.status === "approved"
+                ? value.content
+                : value.status === "pending"
+                ? "this comment is awaiting moderation"
+                : value.status === "rejected"
+                ? "this comment rejected"
+                : "";
+            return <li key={key}>{content}</li>;
           })}
       </ul>
     </div>
