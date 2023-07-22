@@ -27,9 +27,10 @@ const PostList = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                  }}>
-                  <CommentList postId = {key}/>
-                  <CommentCreate postId = {key}/>
+                  }}
+                >
+                  <CommentList comments={posts[key].comments} />
+                  <CommentCreate postId={key} />
                 </div>
               </div>
             </li>

@@ -10,29 +10,25 @@ app.use(cors());
 const posts = {};
 
 app.get("/posts", (req, res) => {
-    res.send(posts);
+  res.send(posts);
 });
 
 app.post("/events", (req, res) => {
-    const {type,data} = req.body;
-    // const type = req.body.type;
-    // const data = req.body.data;
+  const { type, data } = req.body;
+  // const type = req.body.type;
+  // const data = req.body.data;
 
-    if(type === 'PostCreated')
-    {
-        const {id, title} = data;
+  if (type === "PostCreated") {
+    const { id, title } = data;
 
-        posts[id] = {id,title, comments:[]};
-    }
-    else if(type === 'CommentCreated')
-    {
-        const {id, content, postId} = data;
-        posts[postId].comments.push({id, content});
+    posts[id] = { id, title, comments: [] };
+  } else if (type === "CommentCreated") {
+    const { id, content, postId } = data;
+    posts[postId].comments.push({ id, content });
+  }
 
-    }
-
-    //console.log(posts);
-    res.send({});
+  //console.log(posts);
+  res.send({});
 });
 
 app.listen(4002, () => {
